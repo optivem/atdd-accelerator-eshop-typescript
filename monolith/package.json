@@ -1,7 +1,7 @@
 {
-  "name": "@optivem/atdd-accelerator-template-monolith",
+  "name": "@optivem/atdd-accelerator-eshop-monolith",
   "version": "0.0.1",
-  "description": "ATDD Accelerator Template - Monolith Service",
+  "description": "ATDD Accelerator eShop - Monolith",
   "author": "Optivem",
   "private": true,
   "license": "CC0-1.0",

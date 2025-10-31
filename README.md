@@ -1,5 +1,4 @@
-# atdd-accelerator-eshop-typescript
-ATDD Accelerator eShop (TypeScript)
+# ATDD Accelerator eShop (TypeScript)
 
 [![commit-stage-monolith](https://github.com/optivem/atdd-accelerator-eshop-typescript/actions/workflows/commit-stage-monolith.yml/badge.svg)](https://github.com/optivem/atdd-accelerator-eshop-typescript/actions/workflows/commit-stage-monolith.yml)
 [![acceptance-stage](https://github.com/optivem/atdd-accelerator-eshop-typescript/actions/workflows/acceptance-stage.yml/badge.svg)](https://github.com/optivem/atdd-accelerator-eshop-typescript/actions/workflows/acceptance-stage.yml)
