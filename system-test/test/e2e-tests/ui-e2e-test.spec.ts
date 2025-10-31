@@ -80,12 +80,16 @@ describe('UI E2E Test', () => {
     const orderDetails: Locator = page.locator('[data-testid="order-details"]');
     await orderDetails.waitFor({ timeout: WAIT_SECONDS * 1000 });
 
-    // Assert
-    const orderDetailsText = await orderDetails.textContent();
-    expect(orderDetailsText).toContain(orderNumber || '');
-    expect(orderDetailsText).toContain('11');
-    expect(orderDetailsText).toContain('3');
-    expect(orderDetailsText).toContain('OPEN');
+    // Assert - Check specific fields
+    const displayOrderNumber: Locator = page.locator('#displayOrderNumber');
+    const displayProductId: Locator = page.locator('#displayProductId');
+    const displayQuantity: Locator = page.locator('#displayQuantity');
+    const displayStatus: Locator = page.locator('#displayStatus');
+
+    expect(await displayOrderNumber.inputValue()).toBe(orderNumber || '');
+    expect(await displayProductId.inputValue()).toBe('11');
+    expect(await displayQuantity.inputValue()).toBe('3');
+    expect(await displayStatus.inputValue()).toBe('PLACED');
   });
 
   it('shouldCancelOrder', async () => {
@@ -131,8 +135,8 @@ describe('UI E2E Test', () => {
     const orderDetails: Locator = page.locator('[data-testid="order-details"]');
     await orderDetails.waitFor({ timeout: WAIT_SECONDS * 1000 });
 
-    // Assert
-    const orderDetailsText = await orderDetails.textContent();
-    expect(orderDetailsText).toContain('CANCELLED');
+    // Assert - Check that status is now CANCELLED
+    const displayStatus: Locator = page.locator('#displayStatus');
+    expect(await displayStatus.inputValue()).toBe('CANCELLED');
   });
 });

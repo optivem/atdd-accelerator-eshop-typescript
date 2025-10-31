@@ -23,7 +23,14 @@
         <button type="submit" aria-label="Place Order">Place Order</button>
     </form>
     
-    <div role="alert" id="orderResult"></div>
+    <div role="alert" id="orderResult">
+        <div id="orderDetails" style="display: none;">
+            <p>Success! Order has been created.</p>
+            <p>Order Number: <span id="orderNumber" data-testid="order-number"></span></p>
+            <p>Total Price: $<span id="totalPrice" data-testid="total-price"></span></p>
+        </div>
+        <div id="errorMessage" style="display: none;"></div>
+    </div>
 
     <script>
         document.getElementById('orderForm').addEventListener('submit', async function(e) {
@@ -47,15 +54,24 @@
                 if (response.ok) {
                     const order = await response.json();
                     
-                    const resultDiv = document.getElementById('orderResult');
-                    resultDiv.textContent = `Success! Order has been created with Order Number ${order.orderNumber} and Total Price $${order.totalPrice.toFixed(2)}`;
+                    // Update the order details
+                    document.getElementById('orderNumber').textContent = order.orderNumber;
+                    document.getElementById('totalPrice').textContent = order.totalPrice.toFixed(2);
+                    
+                    // Show success message
+                    document.getElementById('orderDetails').style.display = 'block';
+                    document.getElementById('errorMessage').style.display = 'none';
                 } else {
-                    const resultDiv = document.getElementById('orderResult');
-                    resultDiv.textContent = 'Error placing order. Please try again.';
+                    const errorDiv = document.getElementById('errorMessage');
+                    errorDiv.textContent = 'Error placing order. Please try again.';
+                    errorDiv.style.display = 'block';
+                    document.getElementById('orderDetails').style.display = 'none';
                 }
             } catch (error) {
-                const resultDiv = document.getElementById('orderResult');
-                resultDiv.textContent = 'Error placing order. Please try again.';
+                const errorDiv = document.getElementById('errorMessage');
+                errorDiv.textContent = 'Error placing order. Please try again.';
+                errorDiv.style.display = 'block';
+                document.getElementById('orderDetails').style.display = 'none';
                 console.error('Error:', error);
             }
         });
