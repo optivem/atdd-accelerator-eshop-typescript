@@ -1,0 +1,5 @@
+test:
+  eshop:
+    baseUrl: http://localhost:8080
+  wait:
+    seconds: 10

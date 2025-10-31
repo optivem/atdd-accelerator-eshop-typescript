@@ -1,4 +1,5 @@
 import { chromium, Browser, Page, Response } from 'playwright';
+import { TestConfiguration } from '../../src/test-configuration';
 
 describe('UI Smoke Test', () => {
   it('home_shouldReturnHtmlContent', async () => {
@@ -10,7 +11,9 @@ describe('UI Smoke Test', () => {
     const page: Page = await browser.newPage();
     
     // Navigate and get response
-    const response: Response | null = await page.goto('http://localhost:8080/');
+    const response: Response | null = await page.goto(
+      TestConfiguration.getBaseUrl(),
+    );
     
     // Assert
     expect(response?.status()).toBe(200);
