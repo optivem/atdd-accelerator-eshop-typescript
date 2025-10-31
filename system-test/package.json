@@ -8,7 +8,7 @@
   },
   "keywords": ["atdd", "testing", "e2e", "optivem"],
   "author": "Optivem",
-  "license": "CC0-1.0",
+  "license": "MIT",
   "devDependencies": {
     "@types/jest": "^30.0.0",
     "jest": "^30.1.3",

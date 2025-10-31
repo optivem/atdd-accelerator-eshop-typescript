@@ -4,7 +4,7 @@
   "description": "ATDD Accelerator eShop - Monolith",
   "author": "Optivem",
   "private": true,
-  "license": "CC0-1.0",
+  "license": "MIT",
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
